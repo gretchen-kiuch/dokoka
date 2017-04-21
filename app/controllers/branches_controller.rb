@@ -1,5 +1,6 @@
 class BranchesController < ApplicationController
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /branches
   # GET /branches.json

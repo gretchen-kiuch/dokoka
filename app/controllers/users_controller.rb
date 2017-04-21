@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def dashboard
-
+    redirect_to products_path if current_user.branch_manager?
   end
 
   def admins
