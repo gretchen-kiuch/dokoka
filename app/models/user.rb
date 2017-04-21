@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   belongs_to :branch
 
-  delegate :name, prefix: true, to: :branch
+  delegate :name, :address, prefix: true, to: :branch
 
   validates :first_name, :last_name, :account_type, presence: true
 
