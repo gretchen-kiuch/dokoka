@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421122627) do
+ActiveRecord::Schema.define(version: 20170421132928) do
 
   create_table "branches", force: :cascade do |t|
     t.string  "name",         limit: 255
@@ -65,8 +65,10 @@ ActiveRecord::Schema.define(version: 20170421122627) do
     t.string   "first_name",             limit: 255
     t.string   "last_name",              limit: 255
     t.string   "account_type",           limit: 255
+    t.integer  "branch_id",              limit: 4
   end
 
+  add_index "users", ["branch_id"], name: "index_users_on_branch_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
@@ -74,4 +76,5 @@ ActiveRecord::Schema.define(version: 20170421122627) do
   add_foreign_key "branches", "users"
   add_foreign_key "products", "branches"
   add_foreign_key "products", "categories"
+  add_foreign_key "users", "branches"
 end
