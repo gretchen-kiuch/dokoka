@@ -12,7 +12,7 @@
   <% end %>
 
   <ul>
-    <%= f.hidden_field :branch_id %>
+    <%= f.hidden_field :branch_id, value: current_user.branch_id %>
     <div class="dlabel"> Product Name </div>
     <%= f.input :name, label: false %>
     <div class="dlabel"> Price </div>

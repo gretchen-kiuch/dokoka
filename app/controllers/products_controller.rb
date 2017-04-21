@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = current_user.admin? ? Product.all : Product.where(branch_id: current_user.branch_id)
   end
 
   # GET /products/1

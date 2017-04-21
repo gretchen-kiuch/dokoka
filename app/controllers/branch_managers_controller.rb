@@ -42,7 +42,13 @@ class BranchManagersController < ApplicationController
   # PATCH/PUT /branch_managers/1.json
   def update
     respond_to do |format|
-      if @branch_manager.update(branch_manager_params)
+      if params[:user][:password].blank?
+        @result = @branch_manager.update_without_password(branch_manager_params)
+      else
+        @result = @branch_manager.update(branch_manager_params)
+      end
+
+      if @result
         format.html { redirect_to branch_managers_path, notice: 'Branch manager was successfully updated.' }
         format.json { render :show, status: :ok, location: branch_managers_path }
       else
@@ -70,6 +76,6 @@ class BranchManagersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_manager_params
-      params.fetch(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :account_type)
+      params.fetch(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :account_type, :branch_id)
     end
 end

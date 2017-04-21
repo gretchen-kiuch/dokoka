@@ -7,6 +7,7 @@
     <tr>
       <th>Email</th>
       <th>Name</th>
+      <th>Branch</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= bm.email %></td>
         <td><%= "#{bm.first_name} #{bm.last_name}".titleize %></td>
+        <td><%= bm.branch_name %></td>
         <td><%= link_to 'Edit', edit_branch_manager_path(bm) %></td>
         <td><%= link_to 'Destroy', branch_manager_path(bm), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

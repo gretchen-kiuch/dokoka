@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  belongs_to :branch
+
+  delegate :name, prefix: true, to: :branch
+
   validates :first_name, :last_name, :account_type, presence: true
 
   ACCOUNT_TYPE = %w(customer branch_manager admin)

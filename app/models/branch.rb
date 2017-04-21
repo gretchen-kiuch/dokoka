@@ -1,4 +1,8 @@
 class Branch < ActiveRecord::Base
-  belongs_to :user
+  has_many :users
+  belongs_to :store
+
+  delegate :name, prefix: true, to: :store
+
   validates :name, presence: true
 end

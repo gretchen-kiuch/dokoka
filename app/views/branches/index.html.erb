@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Store</th>
+      <th>Branch Name</th>
       <th>Address</th>
       <th colspan="3"></th>
     </tr>
@@ -14,6 +15,7 @@
   <tbody>
     <% @branches.each do |branch| %>
       <tr>
+        <td><%= branch.store_name %></td>
         <td><%= branch.name %></td>
         <td><%= branch.address %></td>
         <td><%= link_to 'Show', branch %></td>
