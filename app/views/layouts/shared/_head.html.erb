@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to image_tag("logo-dokoka.png", alt: "Dokoka logo"), root_path, class: "navbar-brand" %>
+    </div>
+    <% if user_signed_in? %>
+      <div class="navbar-signout">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          Sign out
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar {
+  background-color: #4BB4F5;
+}
+
+.navbar-brand,
+.navbar-signout {
+  line-height: 50px;
+  padding: 0;
+}
+
+.navbar-brand img {
+  display: inline-block;
+  height: 40px;
+  vertical-align: middle;
+}
+
+.navbar-signout {
+  float: right;
+}
+
+.navbar-signout a {
+  color: #FFFFFF;
+  display: inline-block;
+  font-weight: 700;
+  vertical-align: middle;
+}

@@ -3,12 +3,21 @@
 <head>
   <title>Dokoka</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render "/layouts/shared/menu" %>
-<%= yield %>
-
+<%= render "/layouts/shared/head" %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <%= render "/layouts/shared/menu" %>  
+      </div>
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>
