@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421114909) do
+ActiveRecord::Schema.define(version: 20170421122627) do
 
   create_table "branches", force: :cascade do |t|
     t.string  "name",         limit: 255
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20170421114909) do
     t.string  "phone_number", limit: 255
     t.integer "store_id",     limit: 4
     t.integer "user_id",      limit: 4
+    t.float   "latitude",     limit: 24
+    t.float   "longitude",    limit: 24
   end
 
   add_index "branches", ["store_id"], name: "index_branches_on_store_id", using: :btree
