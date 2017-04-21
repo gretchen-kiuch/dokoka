@@ -1,3 +1,12 @@
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% end %>
+
+<li><%= link_to "Stores", stores_path %></li>
+<li><%= link_to "Branches", branches_path %></li>
+<li><%= link_to "Categories", categories_path %></li>
+<li><%= link_to "Products", products_path %></li>
+
+<br>
+<br>
+<br>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+

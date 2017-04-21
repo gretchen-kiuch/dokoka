@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ .dlabel
+ {
+   padding: 10px;
+   margin-left: 0px;
+   margin-left: -20px;
+ }

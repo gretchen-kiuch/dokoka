@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <ul>
+    <%= f.hidden_field :branch_id %>
+    <div class="dlabel"> Product Name </div>
+    <%= f.text_field :name %>
+    <div class="dlabel"> Price </div>
+    <%= f.text_field :price %>
+    <div class="dlabel"> Product Details </div>
+    <%= f.text_area :details %>
+  </ul>
+
   <div class="actions">
     <%= f.submit %>
   </div>
