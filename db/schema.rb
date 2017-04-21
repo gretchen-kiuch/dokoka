@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421132928) do
+ActiveRecord::Schema.define(version: 20170421170045) do
 
   create_table "branches", force: :cascade do |t|
     t.string  "name",         limit: 255
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170421132928) do
     t.string  "name",        limit: 255
     t.string  "price",       limit: 255
     t.text    "details",     limit: 65535
-    t.binary  "image",       limit: 65535
-    t.boolean "available",                 default: true
+    t.binary  "image",       limit: 16777215
+    t.boolean "available",                    default: true
     t.integer "category_id", limit: 4
     t.integer "branch_id",   limit: 4
   end
