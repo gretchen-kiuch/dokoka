@@ -1,11 +1,13 @@
 <% if user_signed_in? %>
   <div class="list-group">
-    <%= link_to "Stores", stores_path, class: "list-group-item" %>
-    <%= link_to "Branches", branches_path, class: "list-group-item" %>
-    <%= link_to "Categories", categories_path, class: "list-group-item" %>
-    <%= link_to "Products", products_path, class: "list-group-item" %>
-    <%= link_to "Branch Managers", branch_managers_path, class: "list-group-item" %>
-    <%= link_to "Admins", admins_path, class: "list-group-item" %>
+    <% if current_user.admin? %>
+      <%= link_to "Stores", stores_path, class: "list-group-item" %>
+      <%= link_to "Branches", branches_path, class: "list-group-item" %>
+      <%= link_to "Categories", categories_path, class: "list-group-item" %>
+      <%= link_to "Products", products_path, class: "list-group-item" %>
+      <%= link_to "Branch Managers", branch_managers_path, class: "list-group-item" %>
+      <%= link_to "Admins", admins_path, class: "list-group-item" %>
+    <% end %>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "list-group-item" %>
   </div>
 <% end %>

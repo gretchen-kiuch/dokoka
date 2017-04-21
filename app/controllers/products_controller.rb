@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy, :show_image]
 
   # GET /products
   # GET /products.json
@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.image = product_params[:image].read
 
     respond_to do |format|
       if @product.save
@@ -37,11 +38,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show_image
+    send_data @product.image, type: "image/png", disposition: "inline"
+  end
+
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
     respond_to do |format|
       if @product.update(product_params)
+        @product.image = product_params[:image].read
+        @product.save
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -69,6 +76,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.fetch(:product).permit(:name, :price, :details, :branch_id, :category_id)
+      params.fetch(:product).permit(:name, :price, :details, :branch_id, :category_id, :image)
     end
 end
