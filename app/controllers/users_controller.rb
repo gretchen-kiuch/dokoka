@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   end
 
+  def admins
+    @admins = User.where(account_type: "admin")
+  end
+
   private
 
   def user_params

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Branch Managers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @branch_managers.each do |bm| %>
+      <tr>
+        <td><%= bm.email %></td>
+        <td><%= "#{bm.first_name} #{bm.last_name}".titleize %></td>
+        <td><%= link_to 'Edit', edit_branch_manager_path(bm) %></td>
+        <td><%= link_to 'Destroy', branch_manager_path(bm), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Branch manager', new_branch_manager_path %>

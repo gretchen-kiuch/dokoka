@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :branch_managers
   resources :products
   resources :categories
   resources :branches
   resources :stores
   devise_for :users
+
+  get "admins", to: "users#admins", as: :admins
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,12 +1,16 @@
+<% if user_signed_in? %>
 
-<li><%= link_to "Stores", stores_path %></li>
-<li><%= link_to "Branches", branches_path %></li>
-<li><%= link_to "Categories", categories_path %></li>
-<li><%= link_to "Products", products_path %></li>
+  <li><%= link_to "Stores", stores_path %></li>
+  <li><%= link_to "Branches", branches_path %></li>
+  <li><%= link_to "Categories", categories_path %></li>
+  <li><%= link_to "Products", products_path %></li>
+  <li><%= link_to "Branch Managers", branch_managers_path %></li>
+  <li><%= link_to "Admins", admins_path %></li>
 
-<br>
-<br>
-<br>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+  <br>
+  <br>
+  <br>
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% end %>
 
 

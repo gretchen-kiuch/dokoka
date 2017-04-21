@@ -1,0 +1,23 @@
+<% if @branch_manager.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@branch_manager.errors.count, "error") %> prohibited this branch_manager from being saved:</h2>
+
+    <ul>
+    <% @branch_manager.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="actions">
+  <%= f.input :first_name, required: true, placeholder: "First Name" %>
+  <%= f.input :last_name, required: true, placeholder: "Last Name" %>
+  <%= f.input :email, required: true, placeholder: "Email" %>
+  <%= f.input :password, placeholder: "Password", required: true %>
+  <%= f.input :password_confirmation, placeholder: "Password Confirmation", required: true %>
+
+  <%= f.input :account_type, collection: %w(admin branch_manager), include_blank: false %>
+
+  <%= f.submit %>
+</div>
