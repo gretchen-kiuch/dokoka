@@ -2,5 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :branch
   belongs_to :category
 
+  delegate :name, prefix: true, to: :category
+
   validates :name, :price, :details, presence: true
 end
