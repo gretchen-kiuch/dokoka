@@ -6,7 +6,7 @@
     <% end %>
   </div>
   <div class="search-box panel-body">
-    <strong>Search</strong>
+    <br>
     <div class="row group-form">
       <%= simple_form_for(:search, url: products_path, method: :get) do |f| %>
         <div class="col-md-3">
@@ -19,11 +19,13 @@
             <%= f.collection_select :category_id, Category.all.order(:name), :id, :name, { prompt: "Category", selected: get_param["category_id"], include_blank: "All" }, onchange: "this.form.submit();" %>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="input-group">
-            <%= f.collection_select :branch_id, Branch.all.order(:name), :id, :name, { prompt: "Branch", selected: get_param["branch_id"], include_blank: "All" } , onchange: "this.form.submit();" if current_user.admin? %>
+        <% if current_user.admin? %>
+          <div class="col-md-3">
+            <div class="input-group">
+              <%= f.collection_select :branch_id, Branch.all.order(:name), :id, :name, { prompt: "Branch", selected: get_param["branch_id"], include_blank: "All" } , onchange: "this.form.submit();" %>
+            </div>
           </div>
-        </div>
+        <% end %>
         <div class="col-md-3">
           <%= f.submit :search %>
         </div>
