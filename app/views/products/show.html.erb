@@ -1,11 +1,16 @@
 <p id="notice"><%= notice %></p>
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @product.name %></div>
+  <div class="panel-heading"><strong><%= @product.name %></strong> - <%= @product.category_name %></div>
   <div class="panel-body">
-    <p><strong><%= @product.price %></strong></p>
-    <p><%= @product.category_name %></p>
-    <p class="mg-btm15"><%= @product.details %></p>
-    <p class="mg-btm15"><%= image_tag url_for(action: :show_image, id: @product.id), size: "250x250" %></p>
+    <div class="row mg-btm15">
+      <div class="col-md-4 thumb-image">
+        <%= image_tag url_for(action: :show_image, id: @product.id), size: "250x250" %>  
+      </div>
+      <div class="col-md-8">
+        <p class="txt-price"><strong>Php <%= @product.price %></strong></p>
+        <p class="mg-btm15"><%= @product.details %></p>
+      </div>      
+    </div>
 
     <div class="btn-wrap">
       <%= link_to 'Back', products_path, class: "btn btn-primary" %>
