@@ -44,11 +44,10 @@
     <tbody>
       <% @products.each do |product| %>
         <tr>
-          <td><%= product.name %></td>
+          <td><%= link_to product.name, product %></td>
           <td><%= product.price %></td>
           <td><%= product.category_name %></td>
           <td><%= product.available %></td>
-          <td><%= link_to 'Show', product, class: "btn btn-warning" %></td>
           <% if current_user.branch_manager? %>
             <td>
               <%= link_to edit_product_path(product), class: "btn btn-success" do %>
