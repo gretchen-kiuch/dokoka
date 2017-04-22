@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <p class="alert alert-info"><%= notice %></p>
+<% end %>
 <div class="panel panel-default">
   <div class="panel-heading">Products
     <% if current_user.branch_manager? %>

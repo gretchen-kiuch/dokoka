@@ -1,7 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <p class="alert alert-info"><%= notice %></p>
+<% end %>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Listing Categories</div>
+  <div class="panel-heading">Categories</div>
   <table class="table">
     <thead>
       <tr>

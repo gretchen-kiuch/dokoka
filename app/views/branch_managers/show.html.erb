@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <p class="alert alert-info"><%= notice %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_branch_manager_path(@branch_manager) %> |
 <%= link_to 'Back', branch_managers_path %>
