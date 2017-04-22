@@ -21,8 +21,8 @@
     <%= f.collection_select :category_id, Category.all.order(:name), :id, :name, prompt: "Select One" %>
     <div class="dlabel"> Product Details </div>
     <%= f.input :details, label: false %>
-    <div class="dlabel"> Available? </div>
-    <%= f.input :available, as: :radio_buttons, label: false %>
+    <div class="dlabel"> Items Available </div>
+    <%= f.input :available, label: false %>
     <div class="dlabel"> Photo </div>
     <%= f.file_field :image, label: false %>
   </ul>

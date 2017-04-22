@@ -16,7 +16,6 @@ class Product < ActiveRecord::Base
         self.by_text(params[:text])
         .by_category(params[:category_id])
         .by_branch(params[:branch_id])
-        .by_availability(params[:available])
       end.recent
     end
 
@@ -30,10 +29,6 @@ class Product < ActiveRecord::Base
 
     def by_branch(branch_id)
       branch_id.blank? ? all : where(branch_id: branch_id)
-    end
-
-    def by_availability(available)
-      available.blank? ? all : where(available: available)
     end
   end
 end
