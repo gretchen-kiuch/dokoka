@@ -13,7 +13,7 @@
 
   <ul>
     <div class="dlabel"> Store </div>
-    <%= f.select :store_id, options_for_select(all_stores), prompt: "Select One" %>
+    <%= f.collection_select :store_id, Store.all.order(:name), :id, :name, prompt: "Select One" %>
     <div class="dlabel"> Branch Name </div>
     <%= f.input :name, label: false %>
     <div class="dlabel"> Address </div>

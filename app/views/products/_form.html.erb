@@ -18,7 +18,7 @@
     <div class="dlabel"> Price </div>
     <%= f.input :price, label: false %>
     <div class="dlabel"> Category </div>
-    <%= f.select :category_id, options_for_select(all_categories), prompt: "Select One" %>
+    <%= f.collection_select :category_id, Category.all.order(:name), :id, :name, prompt: "Select One" %>
     <div class="dlabel"> Product Details </div>
     <%= f.input :details, label: false %>
     <div class="dlabel"> Available? </div>

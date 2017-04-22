@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy, :show_image]
+  before_action :set_branch, only: :index
 
   # GET /products
   # GET /products.json
   def index
-    @products = current_user.admin? ? Product.all : Product.where(branch_id: current_user.branch_id)
+    @products = Product.search_product(params[:search] || {})
   end
 
   # GET /products/1
@@ -25,7 +26,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.image = product_params[:image].read
+    @product.image = product_params[:image].read if product_params[:image].present?
 
     respond_to do |format|
       if @product.save
@@ -47,8 +48,10 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        @product.image = product_params[:image].read
-        @product.save
+        if product_params[:image].present?
+          @product.image = product_params[:image].read
+          @product.save
+        end
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -76,6 +79,11 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.fetch(:product).permit(:name, :price, :details, :branch_id, :category_id, :image)
+      params.fetch(:product).permit(:name, :price, :details, :branch_id, :category_id, :image, :available)
+    end
+
+    def set_branch
+      params[:search] = params[:search] || {}
+      params[:search][:branch_id] = current_user.branch_id if current_user.branch_manager?
     end
 end

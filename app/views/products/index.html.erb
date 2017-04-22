@@ -1,9 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= current_user.branch_name %></h2>
-<p><%= current_user.branch_address %></p>
+<% if current_user.branch_manager? %>
+  <h2><%= current_user.branch_name %></h2>
+  <p><%= current_user.branch_address %></p>
+<% end %>
 
 <h1>Products</h1>
+
+<h4> Search </h4>
+<%= simple_form_for(:search, url: products_path, method: :get) do |f| %>
+  <%= f.input_field :text, placeholder: "Name || Description", value: get_param["text"] %>
+  <%= f.collection_select :category_id, Category.all.order(:name), :id, :name, { prompt: "Category", selected: get_param["category_id"], include_blank: "All" }, onchange: "this.form.submit();" %>
+  <%= f.collection_select :branch_id, Branch.all.order(:name), :id, :name, { prompt: "Branch", selected: get_param["branch_id"], include_blank: "All" } , onchange: "this.form.submit();" %>
+  <%= f.submit :search %>
+<% end %>
 
 <table>
   <thead>
@@ -23,9 +33,11 @@
         <td><%= product.price %></td>
         <td><%= product.category_name %></td>
         <td><%= product.available? ? "Yes" : "No" %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.branch_manager? %>
+          <td><%= link_to 'Show', product %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
