@@ -16,9 +16,8 @@
       <% @branches.each do |branch| %>
         <tr>
           <td><%= branch.store_name %></td>
-          <td><%= branch.name %></td>
+          <td><%= link_to branch.name, branch %></td>
           <td><%= branch.address %></td>
-          <td><%= link_to 'Show', branch, class: "btn btn-warning" %></td>
           <td>
             <%= link_to edit_branch_path(branch), class: "btn btn-success" do %>
               <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
