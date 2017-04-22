@@ -7,20 +7,39 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag "favicon.png" %>
 </head>
-<body>
-<%= render "/layouts/shared/head" %>
-  <div class="content-holder">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <%= render "/layouts/shared/menu" %>  
-        </div>
-        <div class="col-md-9">
-          <%= yield %>
+<% if user_signed_in? %>
+  <body>
+<% else %>
+  <body class="bg-blue">
+<% end %>
+
+  <% if user_signed_in? %>
+    <%= render "/layouts/shared/head" %>
+    <div class="content-holder">
+      <div class="container">
+        <div class="row">
+          <% if user_signed_in? && current_user.admin? %>
+            <div class="col-md-3">
+              <%= render "/layouts/shared/menu" %>  
+            </div>
+            <div class="col-md-9">
+              <%= yield %>
+            </div>
+          <% else %>
+            <div class="col-md-12">
+              <%= yield %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="container">
+      <div class="col-md-4 col-md-offset-4">
+        <%= yield %>
+      </div>
+    </div>
+  <% end%>
 </body>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>
