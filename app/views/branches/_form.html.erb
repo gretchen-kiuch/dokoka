@@ -13,15 +13,15 @@
   <div class="group-form">
     <div class="input-group">
       <label>Store</label>
-      <%= f.select :store_id, options_for_select(all_stores), prompt: "Select One" %>
+      <%= f.collection_select :store_id, Store.all.order(:name), :id, :name, prompt: "Select One", class: "form-control" %>
     </div>
     <div class="input-group">
       <label>Branch Name</label>
-      <%= f.input :name, label: false %>
+      <%= f.input :name, label: false, class: "form-control" %>
     </div>
     <div class="input-group">
       <label>Address</label>
-      <%= f.input :address, label: false %>
+      <%= f.input :address, label: false, class: "form-control" %>
     </div>
     <div class="actions">
       <%= f.submit %>

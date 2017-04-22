@@ -31,7 +31,7 @@
   </div>
 
   <div class="input-group">
-    <%= f.select :branch_id, options_for_select(all_branches), prompt: "Select One", class: "form-control form-select" %>
+    <%= f.collection_select :branch_id, Branch.all.order(:name), :id, :name, prompt: "Select One", class: "form-control form-select" %>
   </div>
   <%= f.submit %>
 </div>

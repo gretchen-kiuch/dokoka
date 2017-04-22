@@ -25,21 +25,20 @@
     </div>
     <div class="input-group">
       <label>Category</label>
-      <%= f.select :category_id, options_for_select(all_categories), prompt: "Select One", class: "form-control" %>
+      <%= f.collection_select :category_id, Category.all.order(:name), :id, :name, prompt: "Select One", class: "form-control" %>
     </div>
     <div class="input-group">
       <label>Product Details</label>
       <%= f.input :details, label: false, class: "form-control" %>
     </div>
     <div class="input-group input-group-radio">
-      <label>Available?</label>
-      <%= f.input :available, as: :radio_buttons, label: false %>
+      <label>Available Items </label>
+      <%= f.input :available, label: false %>
     </div>
     <div class="input-group">
       <label>Photo</label>
       <%= f.file_field :image, label: false, class: "form-control" %>
     </div>
-
     <div class="actions">
       <%= f.submit %>
     </div>

@@ -2,6 +2,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.content-holder {
+  display: inline-block;
+  height: auto;
+  padding-bottom: 100px;
+  width: 100%;
+}
+
 p {
   margin: 0;
 }
