@@ -1,5 +1,10 @@
 body {
+  background-color: #FFFFFF;
   font-family: "Roboto", sans-serif;
+}
+
+body.bg-blue {
+  background-color: #4BB4F5;
 }
 
 .content-holder {
@@ -11,6 +16,12 @@ body {
 
 p {
   margin: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  width: auto;
 }
 
 .btn {
@@ -108,8 +119,10 @@ p {
 .input-group select,
 .input-group .form-control {
   border: solid 1px #CCCCCC;
-  -webkit-border-radius: 4px 4px 4px 4px !important;
-  border-radius: 4px 4px 4px 4px !important;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
   display: inline-block;
   height: 34px;
   padding: 6px 12px;
@@ -126,4 +139,77 @@ p {
   color: #CF0D0D;
   font-size: 24px;
   font-weight: 900;
+}
+
+/*page login*/
+.page-login {
+  background-color: #4BB4F5;
+  display: inline-block;
+  height: auto;
+  margin-top: 10%;
+  width: 100%;
+}
+
+.page-login img {
+  margin-bottom: 40px;
+}
+
+.page-login .input-group-addon {
+  background-color: transparent;
+  border: 0;
+  color: #203F49;
+}
+
+.page-login .input-group-addon + input {
+  border: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.page-login .input-group-addon i:before {
+  font-size: 20px;
+}
+
+.btn-login {
+  padding-left: 44px;
+  margin: 30px 0 20px 0;
+}
+
+.page-login label {
+  color: #FFFFFF;
+}
+
+.page-login h1 {
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.page-login a {
+  color: #FFFFFF;
+}
+
+.page-login a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.remember-me {
+  display: inline-block;
+  height: auto;
+  text-align: right;
+  width: 100%;
+}
+
+.btn-login input[type=submit] {
+  background-color: #203F49;
+  border: 0;
+  -webkit-border-radius: 40px;
+  border-radius: 40px;
+  color: #FFFFFF;
+  display: inline-block;
+  height: 40px;
+  width: 100%;
 }
