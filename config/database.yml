@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  host: 172.17.10.41
+  host: 172.16.1.145
   username: dokoka
   password:
   socket: /var/run/mysqld/mysqld.sock
