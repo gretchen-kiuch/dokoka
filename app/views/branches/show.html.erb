@@ -1,8 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h2> <%= @branch.store_name %> </h2>
-<h3> <%= @branch.name %> </h3>
-<p> <%= @branch.address %> </p>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= @branch.store_name %></div>
+  <div class="panel-body">
+    <strong><%= @branch.name %></strong>
+    <p> <%= @branch.address %> </p>
 
-<%= link_to 'Edit', edit_branch_path(@branch) %> |
-<%= link_to 'Back', branches_path %>
+    <div class="btn-wrap mg-top15">
+      <%= link_to 'Back', branches_path, class: "btn btn-primary" %>
+      <%= link_to edit_branch_path(@branch), class: "btn btn-success mg-left15" do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+      <% end %>
+    </div>
+  </div>
+</div>

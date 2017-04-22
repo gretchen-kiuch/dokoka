@@ -1,8 +1,7 @@
 <%= simple_form_for(@branch) do |f| %>
   <% if @branch.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-danger">
+      <strong><%= pluralize(@branch.errors.count, "error") %> prohibited this branch from being saved:</strong>
       <ul>
       <% @branch.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,16 +10,21 @@
     </div>
   <% end %>
 
-  <ul>
-    <div class="dlabel"> Store </div>
-    <%= f.select :store_id, options_for_select(all_stores), prompt: "Select One" %>
-    <div class="dlabel"> Branch Name </div>
-    <%= f.input :name, label: false %>
-    <div class="dlabel"> Address </div>
-    <%= f.input :address, label: false %>
-  </ul>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="group-form">
+    <div class="input-group">
+      <label>Store</label>
+      <%= f.select :store_id, options_for_select(all_stores), prompt: "Select One" %>
+    </div>
+    <div class="input-group">
+      <label>Branch Name</label>
+      <%= f.input :name, label: false %>
+    </div>
+    <div class="input-group">
+      <label>Address</label>
+      <%= f.input :address, label: false %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

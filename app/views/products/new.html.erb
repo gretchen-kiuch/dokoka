@@ -1,5 +1,9 @@
-<h1>New Product</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', products_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">New Product</div>
+  <div class="panel-body">
+  <%= render 'form' %>
+  <div class="btn-wrap">
+    <%= link_to 'Back', products_path, class: "btn btn-primary" %>
+  </div>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 <% if @branch_manager.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@branch_manager.errors.count, "error") %> prohibited this branch_manager from being saved:</h2>
-
+  <div id="error_explanation" class="alert alert-danger">
+    <strong><%= pluralize(@branch_manager.errors.count, "error") %> prohibited this branch_manager from being saved:</strong>
     <ul>
     <% @branch_manager.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -10,15 +9,29 @@
   </div>
 <% end %>
 
-<div class="actions">
-  <%= f.input :first_name, required: true, placeholder: "First Name", label: false %>
-  <%= f.input :last_name, required: true, placeholder: "Last Name", label: false  %>
-  <%= f.input :email, required: true, placeholder: "Email", label: false  %>
-  <%= f.input :password, placeholder: "Password", required: true, label: false  %>
-  <%= f.input :password_confirmation, placeholder: "Password Confirmation", required: true, label: false  %>
+<div class="actions group-form">
+  <div class="input-group">
+    <%= f.input :first_name, required: true, placeholder: "First Name", label: false, class: "form-control" %>
+  </div>
+  <div class="input-group">
+    <%= f.input :last_name, required: true, placeholder: "Last Name", label: false, class: "form-control" %>
+  </div>
+  <div class="input-group">
+    <%= f.input :email, required: true, placeholder: "Email", label: false, class: "form-control" %>
+  </div>
+  <div class="input-group">
+    <%= f.input :password, placeholder: "Password", required: true, label: false, class: "form-control" %>
+  </div>
+  <div class="input-group">
+    <%= f.input :password_confirmation, placeholder: "Password Confirmation", required: true, label: false, class: "form-control" %>
+  </div>
 
-  <%= f.input :account_type, collection: %w(admin branch_manager), include_blank: false, label: false  %>
-  <%= f.select :branch_id, options_for_select(all_branches), prompt: "Select One" %>
-  <br>
+  <div class="input-group">
+    <%= f.input :account_type, collection: %w(admin branch_manager), include_blank: false, label: false, class: "form-control" %>
+  </div>
+
+  <div class="input-group">
+    <%= f.select :branch_id, options_for_select(all_branches), prompt: "Select One", class: "form-control form-select" %>
+  </div>
   <%= f.submit %>
 </div>

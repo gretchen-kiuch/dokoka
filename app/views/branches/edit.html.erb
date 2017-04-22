@@ -1,6 +1,10 @@
-<h1>Editing Branch</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @branch %> |
-<%= link_to 'Back', branches_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">Editing Branch</div>
+  <div class="panel-body">
+    <%= render 'form' %>
+    <div class="btn-wrap">
+      <%= link_to 'Back', branches_path, class: "btn btn-primary" %>
+      <%= link_to 'Show', @branch, class: "btn btn-warning mg-left10" %>
+    </div>
+  </div>
+</div>

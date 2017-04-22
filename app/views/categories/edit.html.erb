@@ -1,6 +1,10 @@
-<h1>Editing Category</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">Editing Category</div>
+  <div class="panel-body">
+    <%= render 'form' %>
+    <div class="btn-wrap">
+      <%= link_to 'Back', categories_path, class: "btn btn-primary" %>
+      <%= link_to 'Show', @category, class: "btn btn-warning mg-left10" %>
+    </div>
+  </div>
+</div>
