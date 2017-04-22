@@ -2,6 +2,37 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.content-holder {
+  display: inline-block;
+  height: auto;
+  padding-bottom: 100px;
+  width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+.btn {
+  padding: 3px 6px;
+}
+
+.mg-left10 {
+  margin-left: 10px;
+}
+
+.mg-left15 {
+  margin-left: 15px;
+}
+
+.mg-top15 {
+  margin-top: 15px;
+}
+
+.mg-btm15 {
+  margin-bottom: 15px;
+}
+
 .navbar {
   background-color: #4BB4F5;
 }
@@ -27,4 +58,66 @@ body {
   display: inline-block;
   font-weight: 700;
   vertical-align: middle;
+}
+
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  vertical-align: middle;
+}
+
+.table > thead > tr > th {
+  white-space: nowrap;
+}
+
+.group-form {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+}
+
+.group-form input[type=submit] {
+  background-color: #4BB4F5;
+  border: 0;
+  color: #FFFFFF;
+  -webkit-border-radius: 4px 4px 4px 4px !important;
+  border-radius: 4px 4px 4px 4px !important;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 6px 12px;
+}
+
+.group-form input[type=submit]:hover {
+  background-color: #2D96F1;
+}
+
+.form-group {
+  display: inline-block;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.input-group select,
+.input-group .form-control {
+  border: solid 1px #CCCCCC;
+  -webkit-border-radius: 4px 4px 4px 4px !important;
+  border-radius: 4px 4px 4px 4px !important;
+  display: inline-block;
+  height: 34px;
+  padding: 6px 12px;
+  width: 100%;
+}
+
+.btn-wrap {
+  display: inline-block;
+  height: auto;
+  width: 100%;
 }

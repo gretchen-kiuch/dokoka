@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">&nbsp;</div>
+  <div class="panel-body">
+    <div class="btn-wrap">
+      <%= link_to 'Back', categories_path, class: "btn btn-primary" %>
+      <%= link_to edit_category_path(@category), class: "btn btn-success mg-left10" do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+      <% end %>
+    </div>
+  </div>
+</div>

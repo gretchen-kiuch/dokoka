@@ -1,6 +1,10 @@
-<h1>Editing Product</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">Editing Product</div>
+  <div class="panel-body">
+    <%= render 'form' %>
+    <div class="btn-wrap">
+      <%= link_to 'Back', products_path, class: "btn btn-primary" %>
+      <%= link_to 'Show', @product, class: "btn btn-warning mg-left15" %>
+    </div>
+  </div>
+</div>

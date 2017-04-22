@@ -1,8 +1,7 @@
 <%= simple_form_for(@product) do |f| %>
   <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-danger">
+      <strong><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</strong>
       <ul>
       <% @product.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,24 +9,38 @@
       </ul>
     </div>
   <% end %>
-
-  <ul>
-    <%= f.hidden_field :branch_id, value: current_user.branch_id %>
-    <div class="dlabel"> Product Name </div>
-    <%= f.input :name, label: false %>
-    <div class="dlabel"> Price </div>
-    <%= f.input :price, label: false %>
-    <div class="dlabel"> Category </div>
-    <%= f.collection_select :category_id, Category.all.order(:name), :id, :name, prompt: "Select One" %>
-    <div class="dlabel"> Product Details </div>
-    <%= f.input :details, label: false %>
-    <div class="dlabel"> Items Available </div>
-    <%= f.input :available, label: false %>
-    <div class="dlabel"> Photo </div>
-    <%= f.file_field :image, label: false %>
-  </ul>
-
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="group-form">
+    <div class="input-group">
+      <label>Branch ID</label>
+      <%= f.hidden_field :branch_id, value: current_user.branch_id, class: "form-control" %>
+    </div>
+    <div class="input-group">
+      <label>Product Name</label>
+      <%= f.input :name, label: false, class: "form-control" %>
+    </div>
+    <div class="input-group">
+      <label>Price</label>
+      <%= f.input :price, label: false, class: "form-control" %>
+    </div>
+    <div class="input-group">
+      <label>Category</label>
+      <%= f.collection_select :category_id, Category.all.order(:name), :id, :name, prompt: "Select One", class: "form-control" %>
+    </div>
+    <div class="input-group">
+      <label>Product Details</label>
+      <%= f.input :details, label: false, class: "form-control" %>
+    </div>
+    <div class="input-group input-group-radio">
+      <label>Available Items </label>
+      <%= f.input :available, label: false %>
+    </div>
+    <div class="input-group">
+      <label>Photo</label>
+      <%= f.file_field :image, label: false, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

@@ -1,5 +1,9 @@
-<h1>New Branch</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', branches_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">New Branch</div>
+  <div class="panel-body">
+    <%= render 'form' %>
+    <div class="btn-wrap">
+      <%= link_to 'Back', branches_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
